@@ -1,68 +1,56 @@
-import React from 'react';
-import { data } from "../data/data.js";
+import React from 'react'
+import Github from '../assets/github.png'
+import SubMinder from '../assets/subminder-page.png'
+import Live from '../assets/live-button2.png'
 
+const data = {
+  name: 'SubMinder',
+  image: SubMinder,
+  github: 'https://github.com/tohora-2023/SubMinder/tree/dev',
+  live: 'https://subminder-production.up.railway.app/',
+  summary:
+    'SubMinder was created to help out with managing your subscriptions and trails. I learned so much throughout the project including futhering my Redux and tailwind skills and also developing many of my human skills including Teamwork, Communication, Problem Solving. I really feel my problem solving skills excelled during this project as i was able to overcome many problems that came up. This final project of this course for me was really what brought the entire dev academy course together and where i really got to show what i had learned. ',
+  techstack: 'JavaScript, Redux, Tailwind',
+}
 
 const Work = () => {
-
-    // projects file
-    const project = data;
-    //setProject(data);
-  
   return (
-    <div name='work' className='w-full md:h-screen text-gray-300 bg-[#0a192f]'>
-      <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
-        <div className='pb-8'>
-          <p className='text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600'>
-            Work
+    <div name="work" className="w-full md:h-screen text-black-300 bg-white">
+      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
+        <div className="pb-8">
+          <p className="text-4xl font-bold inline border-b-4 text-black-300 border-purple-600">
+            Projects
           </p>
-          <p className='py-6'>// Check out some of my recent work</p>
+          <p className="py-6">Check out My Recent Project</p>
         </div>
 
-{/* container for projects */}
-<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          
-          {/* Gird Item */}
-          {project.map((item, index) => (
-  <div
-    key={index}
-    style={{ backgroundImage: `url(${item.image})` }}
-    className="shadow-lg shadow-[#040c16] group container rounded-md 
-              flex justify-center text-center items-center mx-auto content-div "
-  >
-    {/* Hover effect for images */}
-    <div className="opacity-0 group-hover:opacity-100 ">
-      <span className="text-2xl font bold text-white tracking-wider ">
-        {item.name}
-      </span>
-      <div className="pt-8 text-center ">
-        {/* eslint-disable-next-line */}
-        <a href={item.github} target="_blank">
-          <button
-            className="text-center rounded-lg px-4 py-3 m-2
-                       bg-white text-gray-700 font-bold text-lg"
-          >
-            Code
-          </button>
-        </a>
-        {/* eslint-disable-next-line */}
-        <a href={item.live} target="_blank">
-          <button
-            className="text-center rounded-lg px-4 py-3 m-2
-                       bg-white text-gray-700 font-bold text-lg"
-          >
-            Live
-          </button>
-        </a>
+        {/* container for projects */}
+        <div className="grid grid-cols-2 gap-20 border-">
+          <img className="rounded-md" src={data.image} alt="SubminderPage" />
+          <div>
+            <div className="grid grid-cols-2">
+              <div>
+                <p className="mb-5 text-2xl font-bold">{data.name}</p>
+              </div>
+              <div className="flex justify-end space-x-5">
+                <a href={data.github}>
+                  <img className="h-auto w-8" src={Github} alt="github" />
+                </a>
+
+                <a href={data.live}>
+                  <img className="h-auto w-8" src={Live} alt="live" />
+                </a>
+              </div>
+            </div>
+            <p className="mb-5 text-l font-bold">Full Stack Developer</p>
+            <p className="mb-5">{data.summary}</p>
+            <p className="mb-1 text-l font-bold">Tech Stack</p>
+            <p className="mb-5">{data.techstack}</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-))}
+  )
+}
 
-
-</div>
-      </div>
-    </div>
-  );
-};
-
-export default Work;
+export default Work
